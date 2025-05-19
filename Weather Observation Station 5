@@ -1,0 +1,18 @@
+WITH max_city AS (
+    SELECT CITY, LENGTH(CITY) as city_length
+    FROM station 
+    ORDER BY city_length ASC, CITY ASC 
+    LIMIT 1),
+    
+    min_city AS (
+    SELECT CITY, LENGTH(CITY) as city_length
+    FROM station 
+    ORDER BY city_length DESC, CITY ASC 
+    LIMIT 1)
+
+SELECT * 
+FROM max_city
+UNION 
+SELECT * 
+FROM min_city
+    
